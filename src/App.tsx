@@ -171,6 +171,7 @@ export default function App() {
     setHasStarted(true);
     if (audioRef.current) {
         audioRef.current.volume = 0.5;
+        audioRef.current.currentTime = 5; 
         audioRef.current.play().catch(error => {
             console.log("Audio play failed, waiting for next user interaction:", error);
         });
