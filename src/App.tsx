@@ -89,6 +89,10 @@ export default function App() {
   const currentChapterData = STORY_CHAPTERS[currentChapter];
 
 
+
+  useEffect(() => {
+    console.log("App mounted"); 
+  }, []); 
    // --- NUEVA FUNCIÓN DE FADE-OUT ---
   const fadeOutAndStop = (audioElement: HTMLAudioElement) => {
       const fadeDuration = 3000; // 3 segundos para el fade-out
