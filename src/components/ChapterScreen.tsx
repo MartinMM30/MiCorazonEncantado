@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // <-- AÑADIR useRef
+import { useState, useEffect, useRef } from 'react'; // <-- AÑADIR useRef
 import './ChapterScreen.css'; 
 
 // La misma interfaz del App.tsx debe ser copiada aquí o exportada

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css'; 
 import ChapterScreen from './components/ChapterScreen';
 import ParticlesBackground from './components/ParticlesBackground';
