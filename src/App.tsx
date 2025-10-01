@@ -16,7 +16,6 @@ interface ChapterData {
 }
 
 const STORY_CHAPTERS: ChapterData[] = [
-  // ... (Tu arreglo STORY_CHAPTERS completo va aquí) ...
   { 
     id: 0, 
     text: ["Para la dueña de mi Corazón Encantado..."], 
@@ -26,11 +25,14 @@ const STORY_CHAPTERS: ChapterData[] = [
   { 
     id: 1, 
     text: [
-         "Antes de ti, mis días eran... diferentes.",
-        "Había color, sí, pero le faltaba ese brillo que solo tú podías traer.",
-        "Una parte de mí esperaba, sin saber qué.",
-        // AÑADIR ESTA PAUSA:
-        "Esperaba esa luz sin igual que un día cambiaría mi vida para siempre."
+         "Antes de ti, mis días eran... ",
+         "Diferentes.",
+        "Había color, sí, ",
+        "Pero le faltaba ese brillo que solo tú podías traer.",
+        "Una parte de mí esperaba...",
+        "sin saber qué.",
+        "Esperaba esa luz sin igual que un día",
+        "Cambiaría mi vida para siempre."
     ],
     style: "grayscale"
   },
@@ -38,8 +40,10 @@ const STORY_CHAPTERS: ChapterData[] = [
     id: 2, 
     text: [
       "Y entonces, llegaste tú.",
-      "Como una luz que disipa la niebla, una melodía que lo cambia todo.",
-      "Mi mundo, de repente, se llenó de un color que nunca supe que faltaba."
+      "Como una luz que disipa la niebla,",
+      "Una melodía que lo cambia todo.",
+      "Mi mundo de repente,",
+       "Se llenó de un color que nunca supe que faltaba."
     ], 
     style: "color-reveal"
   },
@@ -48,10 +52,12 @@ const STORY_CHAPTERS: ChapterData[] = [
     text: [
        "Cada parte de ti es el amor que me ha dado el valor para ser yo mismo.",
         "Tu risa, que ilumina cualquier día.",
-        "Tu fuerza, que me inspira a ser mejor.",
-        "Tu ternura, que calma cualquier tormenta.",
-        // AÑADIR NUEVAS LÍNEAS AQUÍ:
-        "Y es tu bondad silenciosa, la que más me encanta.",
+        "Tu fuerza,",
+        "Que me inspira a ser mejor.",
+        "Tu ternura,", 
+        "Que calma cualquier tormenta.",
+        "Y es tu bondad silenciosa,",
+        "La que más me encanta.",
         "Es tu forma de amar sin pedir nada a cambio...",
         "Lo que me recuerda lo afortunado que soy.",
     ],
@@ -60,7 +66,8 @@ const STORY_CHAPTERS: ChapterData[] = [
   { 
     id: 4, 
     text: [
-      "Y así, mi corazón quedó encantado.",
+      "Y así...",
+      "Mi Corazón quedó Encantado.",
       "Vibra por ti, con una fuerza que nunca imaginé.",
       "Porque tú eres esa luz sin igual en mi vida."
     ],
@@ -69,12 +76,13 @@ const STORY_CHAPTERS: ChapterData[] = [
   { 
     id: 5, 
     text: [
-      "No tengo fotos para mostrarte aquí,",
-      "Pero cada palabra, cada detalle en este pequeño universo digital...",
-      "Está hecho con el mismo amor incondicional que siento por ti, hoy y siempre.",
+      "No tengo fotos o recuerdos para mostrarte aquí todavia,",
+      "Pero cada palabra,",
+      "Cada detalle en este pequeño espacio que construi para ti...",
+      "Está hecho con el mismo amor incondicional que siento, hoy y siempre.",
       "Gracias por hacerme el hombre más feliz del mundo.",
-      "Siempre estaré para ti, en cada paso, en cada sueño.",
-      "Mi corazón es tuyo, y seguirá encantado por toda la eternidad."
+      "Siempre estaré para ti, en cada paso, tropiezo, logro o en cada sueño que tengas.",
+      "Mi corazón es tuyo, y seguirá así por toda la eternidad."
     ],
     style: "future"
   }
@@ -120,25 +128,22 @@ export default function App() {
     if (currentChapter < STORY_CHAPTERS.length - 1) {
       setCurrentChapter(prev => prev + 1);
     } else {
-        // REINICIO SUAVE: Si es el último capítulo, vuelve al inicio
-        
-        // Detener la música con FADE-OUT
+       
         if (audioRef.current) {
-            fadeOutAndStop(audioRef.current); // <-- USAR FADE-OUT AQUÍ
+            fadeOutAndStop(audioRef.current); 
         }
         
         // Reiniciar la aplicación después del fade-out
         setTimeout(() => {
             setCurrentChapter(0);
             setHasStarted(false);
-        }, 3000); // Esperar la duración del fade (3000ms) antes de reiniciar el estado
+        }, 3000);
     } 
   };
 
   const handleTransition = () => {
       if (isTransitioning) return;
       
-      // Si NO es el último capítulo, hacemos la transición normal.
       if (currentChapter < STORY_CHAPTERS.length - 1) {
           setIsTransitioning(true);
 
@@ -147,7 +152,7 @@ export default function App() {
               setIsTransitioning(false);
           }, 700);
       } else {
-          // Si es el ÚLTIMO CAPÍTULO, usamos la transición para cubrir el reinicio.
+         
           setIsTransitioning(true); // Iniciar Shockwave
 
           if (audioRef.current) {
@@ -156,7 +161,7 @@ export default function App() {
         
           // Reiniciar el estado del APP después de que Shockwave y FadeOut terminen (3 segundos)
           setTimeout(() => {
-              handleNextChapter(); // Esto llamará a la lógica de reinicio
+              handleNextChapter();
               setIsTransitioning(false); 
           }, 5000); 
       }

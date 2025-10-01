@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'; // <-- AÑADIR useRef
 import './ChapterScreen.css'; 
 
-// La misma interfaz del App.tsx debe ser copiada aquí o exportada
+
 interface ChapterData {
     id: number;
     text: string[];
@@ -27,7 +27,7 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
 
 
      // Efecto de tipado lento para el texto
-    // Efecto de tipado lento para el texto (¡Ahora Asincrónico!)
+   
     useEffect(() => {
         if (!currentText) return;
         
@@ -35,11 +35,11 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
         
         const typeText = async () => {
             // 1. LIMPIEZA INICIAL
-            setDisplayText(''); // Limpiar completamente el texto al inicio
+            setDisplayText(''); 
             setIsTyping(true);
             
             // 2. PAUSA DE AMORTIGUACIÓN (100ms)
-            // Esperar un momento para que el navegador estabilice el contenedor
+           
             await wait(100); 
             
             let currentDisplay = '';
@@ -83,9 +83,7 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
         
         if (isTyping) {
             // LÓGICA DE SALTO
-            // Al hacer clic, el useEffect anterior se limpiará (shouldStopTyping = true)
             
-            // Mostrar el texto completo y corregido
             setDisplayText(currentText); 
             setIsTyping(false);
 
