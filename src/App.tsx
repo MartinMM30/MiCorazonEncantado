@@ -18,8 +18,8 @@ interface ChapterData {
 const STORY_CHAPTERS: ChapterData[] = [
   { 
     id: 0, 
-    text: ["Para la dueña de mi Corazón Encantado..."], 
-    buttonText: "Descubrir",
+    text: ["Para la dueña de mi Corazón..."], 
+    buttonText: "Entrar",
     style: "invitation"
   },
   { 
