@@ -1,0 +1,120 @@
+.chapter-screen {
+  width: 80%;
+  max-width: 900px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.narrative-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.typed-text {
+  font-size: 2.2em; 
+  font-weight: 400; 
+  line-height: 1.4;
+  min-height: 120px; 
+  margin-bottom: 50px;
+  font-style: italic; 
+  word-spacing: 2px; 
+ will-change: transform, opacity;
+}
+.typed-text.is-visible {
+    visibility: visible;
+}
+
+
+/* El estilo de texto es más brillante en el capítulo de confesión */
+.narrative-container.confession .typed-text {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 0 0 15px #FFD700;
+}
+
+/* Indicador de avance */
+.next-indicator {
+    position: absolute;
+    bottom: 5vh;
+    font-size: 0.9em;
+    opacity: 0.7;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+.next-indicator.hidden {
+    display: none;
+}
+
+
+.typed-text {
+  /* Nuevo tamaño y espaciado mejorado */
+  font-size: 2.2em; /* Texto más grande para un impacto visual */
+  font-weight: 400; 
+  line-height: 1.4;
+  min-height: 120px; /* Asegura que la pantalla no salte */
+  margin-bottom: 50px;
+  font-style: italic; /* Cursiva para un tono romántico */
+}
+
+/* El estilo de texto es más brillante y grande en el capítulo de confesión */
+.narrative-container.confession .typed-text {
+    font-size: 2.8em; /* Aún más grande para el clímax */
+    font-weight: 600; /* Un poco más de grosor */
+    color: #FFD700;
+    text-shadow: 0 0 15px #FFD700, 0 0 25px rgba(255, 215, 0, 0.5); /* Brillo más intenso */
+}
+
+/* Asegurar buen contraste para el capítulo 2 (color-reveal) */
+.narrative-container.color-reveal .typed-text {
+    color: #333; /* Texto oscuro sobre fondo de color */
+}
+
+/* Asegurar buen contraste para el capítulo 3 (essence) */
+.narrative-container.essence .typed-text {
+    color: #1a1a1a; /* Texto casi negro sobre fondo muy claro */
+}
+
+/* Indicador de avance */
+.next-indicator {
+    /* Mantenerlo sutil */
+    position: absolute;
+    bottom: 5vh;
+    font-size: 0.9em;
+    opacity: 0.7;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    font-style: normal; /* No queremos cursiva en la instrucción */
+}
+
+/* OPTIMIZACIÓN MÓVIL (Mobile First) */
+
+@media (max-width: 768px) {
+    .chapter-screen {
+        width: 95%;
+    }
+    
+    .typed-text {
+        font-size: 1.4em; /* Fuente mucho más pequeña para móviles */
+        min-height: 100px;
+        line-height: 1.5;
+    }
+
+    .narrative-container.confession .typed-text {
+    font-size: 2.8em; 
+    font-weight: 600; 
+    color: #FFD700;
+    text-shadow: 0 0 15px #FFD700, 0 0 25px rgba(255, 215, 0, 0.5); 
+    
+    /* <-- AÑADIR ESTA LÍNEA */
+    animation: text-heart-pulse 3s infinite ease-in-out; 
+}
+    .next-indicator {
+        bottom: 3vh; /* Acercar el indicador en móviles */
+    }
+}
+

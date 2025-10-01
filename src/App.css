@@ -1,0 +1,115 @@
+:root {
+  --color-grayscale: #333;
+  --color-reveal: linear-gradient(135deg, #FFD700 0%, #FF69B4 100%); /* Dorado y Rosa */
+  --color-confession: radial-gradient(circle, #ff0077 0%, #4b0020 100%); /* Centro Rosa Intenso */
+  --color-essence: #e0f7fa; /* Azul claro para la esencia/luz */
+}
+
+body {
+  margin: 0;
+  /* FUENTE FINAL: Cormorant Garamond */
+  font-family: 'Cormorant Garamond', serif; 
+  background-color: #000;
+  color: white;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 2s ease-in-out, background-image 2s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* --- ESTILOS DE INVITACIÓN --- */
+.app-container.invitation {
+    background-color: #000;
+    flex-direction: column;
+}
+
+.app-container.invitation h1 {
+    font-size: 3em;
+    color: #FFD700;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px #FFD700;
+    font-weight: 500; 
+    font-style: italic; 
+}
+
+.start-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: transparent;
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.start-button:hover {
+    background-color: #FFD700;
+    color: #000;
+    box-shadow: 0 0 15px #FFD700;
+}
+
+
+/* --- ESTILOS DE CAPÍTULOS (Fondos) --- */
+.app-container.grayscale {
+  background-color: var(--color-grayscale);
+}
+
+.app-container.color-reveal {
+  background-image: var(--color-reveal);
+  color: black; /* Texto negro sobre fondo de color */
+}
+
+.app-container.essence {
+  background-color: var(--color-essence);
+  color: var(--color-grayscale); /* Texto oscuro sobre fondo claro */
+}
+
+.app-container.confession {
+  /* Fondo sin la animación de pulso que estaba aquí */
+  background-image: var(--color-confession); 
+  animation: none; /* Asegurar que no hay animación de fondo */
+}
+
+.app-container.future {
+  background: linear-gradient(to top, #0A0A0A, #4B0082); 
+  animation: none; /* Desactiva el pulso para este capítulo */
+}
+
+/* --- ANIMACIONES GLOBALES --- */
+/* Animación del indicador de avance */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ANIMACIÓN DE PULSO DE TEXTO (NUEVA/MODIFICADA) */
+/* Este Keyframes es más sutil y se aplicará solo al texto */
+@keyframes text-heart-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.015); opacity: 0.98; } /* Pulso sutil en el texto */
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* --- OPTIMIZACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    /* Reducir el tamaño de la fuente del título de invitación */
+    .app-container.invitation h1 {
+        font-size: 2em;
+    }
+    
+    .start-button {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+}

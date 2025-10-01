@@ -1,0 +1,77 @@
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Crucial: permite que el usuario haga clic a través del fondo */
+    z-index: 1; /* Detrás del texto */
+}
+
+.particle {
+    position: absolute;
+    background-color: #ffe4b5; /* Color sutil: melocotón/champán claro */
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 5px #ffebcd;
+    
+    /* Variables CSS definidas en el componente */
+    width: var(--size);
+    height: var(--size);
+    left: var(--left-pos);
+    top: var(--top-pos);
+    
+    /* Animación */
+    animation: 
+        float var(--duration) linear infinite var(--delay) alternate, 
+        twinkle calc(var(--duration) / 2) ease-in-out infinite alternate;
+}
+
+/* Animación de flotación lenta */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, -50px); } /* Movimiento horizontal y vertical lento */
+}
+
+/* Animación de brillo/parpadeo */
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+.shooting-star-particle {
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), #FFFFFF, rgba(255, 255, 255, 0.1));
+    border-radius: 2px;
+    
+    /* Variables CSS */
+    width: 30px; /* Más ancho para simular la "cola" */
+    height: 2px; /* Muy delgado */
+    left: var(--left-pos);
+    top: var(--top-pos);
+    
+    /* Animación: se mueve y desaparece lentamente */
+    animation: 
+        shoot var(--duration) linear infinite var(--delay);
+    
+    /* Rotar para un ángulo de caída */
+    transform: rotate(45deg); 
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    100% {
+        /* Mover fuera de la pantalla en la dirección de la rotación */
+        transform: translate(-100vw, 100vh) rotate(45deg); 
+        opacity: 0;
+    }
+}

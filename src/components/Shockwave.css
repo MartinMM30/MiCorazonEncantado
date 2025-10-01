@@ -1,0 +1,31 @@
+.shockwave-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* El tamaño inicial es pequeño, para que parezca que explota desde el centro */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco brillante */
+    
+    /* Centrar perfectamente */
+    transform: translate(-50%, -50%);
+    
+    /* Aplicar la animación */
+    animation: shockwave 0.8s ease-out forwards;
+    z-index: 100; /* Asegurar que esté encima de todo */
+}
+
+@keyframes shockwave {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.9;
+        /* Puedes cambiar el color del borde para un efecto de color reveal */
+        box-shadow: 0 0 20px #FFD700; 
+    }
+    100% {
+        /* Se expande para cubrir toda la pantalla */
+        transform: translate(-50%, -50%) scale(200); /* Un valor grande para cubrir el viewport */
+        opacity: 0; /* Se desvanece por completo */
+    }
+}
