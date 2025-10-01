@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'; // <-- AÑADIR useRef
+import { useState, useEffect } from 'react'; // <-- AÑADIR useRef
 import './ChapterScreen.css'; 
 
 // La misma interfaz del App.tsx debe ser copiada aquí o exportada
@@ -25,9 +25,6 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
     // Función de utilidad para esperar un número de milisegundos
     const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-    
-    // Usamos useRef para almacenar el ID del intervalo de forma segura
-    const intervalRef = useRef<number | null>(null);
 
      // Efecto de tipado lento para el texto
     // Efecto de tipado lento para el texto (¡Ahora Asincrónico!)
