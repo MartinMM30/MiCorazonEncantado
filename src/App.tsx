@@ -158,7 +158,7 @@ export default function App() {
           setTimeout(() => {
               handleNextChapter(); // Esto llamará a la lógica de reinicio
               setIsTransitioning(false); 
-          }, 3000); 
+          }, 5000); 
       }
   }
 

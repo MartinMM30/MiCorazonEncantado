@@ -53,7 +53,7 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
                 setDisplayText(currentDisplay);
                 
                 // Pausa entre letras (25ms)
-                await wait(25); 
+                await wait(40); 
             }
 
             // 4. FINALIZACIÓN
@@ -62,7 +62,7 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
                 setDisplayText(currentText); // Asegura el texto final perfecto
                 
                 // Pausa de lectura final (el setTimeout anterior)
-                const pauseTimer = setTimeout(() => {}, 2500); 
+                const pauseTimer = setTimeout(() => {}, 4000); 
                 return () => clearTimeout(pauseTimer);
             }
         };
@@ -94,7 +94,13 @@ export default function ChapterScreen({ chapterData, onNext, isLastChapter }: Ch
             setCurrentLineIndex(prev => prev + 1);
         } else {
             // Avanza al siguiente capítulo
-            onNext();
+            if (isLastChapter) {
+                 onNext(); 
+                setTimeout(() => {
+                    }, 3000)
+                    } else {
+                         onNext();
+        }
         }
     };
     

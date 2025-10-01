@@ -118,3 +118,14 @@
     }
 }
 
+.narrative-container.future .typed-text {
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #FFD700; /* Dorado */
+    
+    /* El SECRETO: Una sombra intensa y pulsante */
+    text-shadow: 0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5);
+    
+    /* Aplicar la animación */
+    animation: final-resplandor 3s infinite alternate ease-in-out;
+}

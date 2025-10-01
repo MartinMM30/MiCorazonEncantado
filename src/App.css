@@ -113,3 +113,20 @@ body {
         font-size: 1em;
     }
 }
+
+/* Animación para el texto final (Parecido al Ki) */
+@keyframes final-glitch {
+    0% { filter: hue-rotate(0deg); opacity: 1; }
+    5% { transform: translate(1px, 1px) scale(1.005); opacity: 0.98; }
+    10% { transform: translate(-1px, 0) scale(1.002); opacity: 1; }
+    15% { filter: hue-rotate(10deg); }
+    20% { transform: translate(0, 1px) scale(1.005); }
+    100% { filter: hue-rotate(0deg); }
+}
+
+/* Animación para el texto final: Pulso de Resplandor Dorado */
+@keyframes final-resplandor {
+    0% { transform: scale(1); text-shadow: 0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5); } 
+    50% { transform: scale(1.005); text-shadow: 0 0 15px #FFD700, 0 0 30px rgba(255, 215, 0, 0.8), 0 0 45px #FFD700; } /* Más grande, más brillo */
+    100% { transform: scale(1); text-shadow: 0 0 10px #FFD700, 0 0 20px rgba(255, 215, 0, 0.5); }
+}
